@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sfinder guide</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="../doc.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div></div>
+        <div class="content">
+            <h1 class="title" no-tc>sfinder guide</h1>
+            <h1 class="subtitle" no-tc>by mina</h1>
+            <div class="vmeta">For those without Japanese-speaking skills nor translators.</div>
+            <div class="text">You likely want to go to <a href="#path">path</a> or <a href="#cover">cover</a>.</div>
+            <div id="table-of-contents">
+            </div>
+            <h1 id="prequisites">prequisites</h1>
+            <div class="box info">All references to the word "sfinder" refer to knewjade's
+                <code>solution-finder.jar</code>
+            </div>
+            <div class="text">The prequisites of using sfinder are:</div>
+            <ul>
+                <li>Java: <a
+                        href="https://www.java.com/en/download/manual.jsp">https://www.java.com/en/download/manual.jsp</a>
+                </li>
+                <li>sfinder: <a
+                        href="https://github.com/knewjade/solution-finder">https://github.com/knewjade/solution-finder</a>
+                </li>
+            </ul>
+            <div class="text">You can get started by entering the directory sfinder is installed and using the following
+                command:</div>
+            <div class="box code">java -jar solution-finder.jar <span class="meta">[command]</span></div>
+            <div class="text">Assume that all references to commands below are prefixed with this, and are run in the
+                proper environments.
+                Do note that between operating systems some characters behave differently. For example, the
+                <code>[^X]</code>
+                notation in patterns is parsed differently in Windows' Command Prompt. To avoid this, delimit the
+                arguments with double quotes, like <code>"[^X]"</code>.
+            </div>
+            <div class="text">All arguments described in this document are written as <code
+                    class="meta">[-a:type]</code>. To use them in sfinder,
+                write <code class="meta">-a value1 value2 …</code> without brackets.</div>
+            <h1 id="argument-types">argument types</h1>
+            <h2 id="argument-type-number"><code>number</code></h2>
+            <div class="text">Any number. This is typically a positive whole number, but this should be determined by
+                context.</div>
+            <h2 id="argument-type-string"><code>string</code></h2>
+            <div class="text">Any text input. Typically one word.</div>
+            <h2 id="argument-type-boolean"><code>boolean</code></h2>
+            <div class="text">Either <code>true</code> or <code>false</code>, or <code>yes</code> or <code>no</code>.
+            </div>
+            <h2 id="argument-type-regex"><code>regex</code></h2>
+            <div class="text">Any <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expression</a>.
+            </div>
+            <h2 id="argument-type-droptype"><code>droptype</code></h2>
+            <div class="text">Any variant of:</div>
+            <ul>
+                <li><code>soft</code>, <code>softdrop</code>
+                    <ul>No limits. Commands are able to freely soft-drop any piece by any amount.
+                    </ul>
+                </li>
+                <li><code>hard</code>, <code>harddrop</code>
+                    <ul>All pieces are hard-dropped.</ul>
+                </li>
+                <li><code>softdrop180</code>, <code>180</code>
+                    <ul>Similar to <code>softdrop</code>, but commands are able to use 180-degree rotations.<br><i>Make
+                            sure that
+                            your kick table supports 180-degree rotations!</i></ul>
+                </li>
+                <li><code>t-softdrop</code>
+                    <ul>Similar to <code>harddrop</code>, with the exception that any T piece can be soft-dropped.</ul>
+                </li>
+                <li><code>tsz</code>, <code>tspin0</code>
+                    <ul>Similar to <code>t-softdrop</code>, but only T pieces that are spinned can be
+                        soft-dropped.<br>This includes
+                        T-Spin-Zeroes, T-Spin-Minis, T-Spin-Singles, T-Spin-Doubles, and T-Spin-Triples.</ul>
+                </li>
+                <li><code>tsm</code>, <code>tspinm</code>
+                    <ul>Similar to <code>t-softdrop</code>, but only T pieces that are spin-minis (or above) can be
+                        soft-dropped.<br>This includes T-Spin-Minis, T-Spin-Singles, T-Spin-Doubles, and T-Spin-Triples.
+                    </ul>
+                </li>
+                <li><code>tss</code>, <code>tspin1</code>
+                    <ul>Similar to <code>t-softdrop</code>, but only T pieces that are spin-singles (or above) can be
+                        soft-dropped.<br>This includes T-Spin-Singles, T-Spin-Doubles, and T-Spin-Triples.
+                    </ul>
+                </li>
+                <li><code>tsd</code>, <code>tspin2</code>
+                    <ul>Similar to <code>t-softdrop</code>, but only T pieces that are spin-doubles (or above) can be
+                        soft-dropped.<br>This includes T-Spin-Doubles, and T-Spin-Triples.
+                    </ul>
+                </li>
+                <li><code>tst</code>, <code>tspin3</code>
+                    <ul>Similar to <code>t-softdrop</code>, but only T pieces that are spin-triples (or above) can be
+                        soft-dropped.<br>This includes T-Spin-Triples.
+                    </ul>
+                </li>
+            </ul>
+            <h2 id="argument-type-path"><code>path</code></h2>
+            <div class="text">Any system file <a href="https://en.wikipedia.org/wiki/Path_(computing)">path</a>.
+                Examples include: <ul>
+                    <li><code>C:\Users\mina\sfinder\output\path.csv</code></li>
+                    <li><code>~/kicks/srs.properties</code></li>
+                    <li><code>../patterns.txt</code></li>
+                </ul>
+            </div>
+            <h2 id="argument-type-hold"><code>hold</code></h2>
+            <div class="text">Any variant of:</div>
+            <ul>
+                <li><code>use</code>
+                    <ul>Allows commands to use hold.</ul>
+                </li>
+                <li><code>avoid</code>
+                    <ul>Disallows commands to use hold.</ul>
+                </li>
+            </ul>
+            <h2 id="argument-type-pattern"><code>pattern</code></h2>
+            <div class="text">Describes a very large range of queues. A pattern is a group of "segments", optionally
+                joined by commas (for example, <code>T,*!</code> is the same as <code>T*!</code>). You can additionally
+                specify multiple, separate
+                patterns by separating them with <code>;</code>.</div>
+            <div class="text">A segment can be any of:</div>
+            <ul>
+                <li>A <a href="#argument-type-piece"><code>piece</code></a>. These resolve to themselves. <ul><code
+                            class="meta">ITSZ => [ITSZ]</code></ul>
+                </li>
+                <li>A bag: a set of pieces, delimited by <code>[</code> and <code>]</code>, ie. <code>[IJOL]</code>.
+                    These resolve to "one element of (bag)".<ul>
+                        <code class="meta">[IJOL] => [I, J, O, L]</code><br>
+                        <code class="meta">[SZ]O[LJ] => [SOL, SOJ, ZOL, ZOJ]</code>
+                    </ul>
+                </li>
+                <li>An exclusion bag: a set of pieces, delimited by <code>[^</code> and <code>]</code>, ie.
+                    <code>[^IJOL]</code>. These resolve to "one element
+                    of everything not in (bag)". <ul>
+                        <code class="meta">[^IJOL] => [T, S, Z]</code>
+                    </ul>
+                </li>
+                <li>Wildcard: <code>*</code>. This resolves to <code>[IJOLZST]</code>. <ul>
+                        <code class="meta">* => [I, J, O, L, Z, S, T]</code><br>
+                        <code class="meta">L* => [LI, LJ, LO, LL, LZ, LS, LT]</code>
+                    </ul>
+                </li>
+                <li>Limited selector: <code>(bag)pN</code>. This resolves to "all <code>N</code>-length permutations of
+                    <code>(bag)</code>". <ul>
+                        <code
+                            class="meta">[IJLO]p3 => [LOI, LIO, ILO, IOL, OIL, OLI, JOI, JIO, IJO, IOJ, OIJ, OJI, JLI, JIL, IJL, ILJ, LIJ, LJI, JLO, JOL, OJL, OLJ, LOJ, LJO]</code><br>
+                        <code
+                            class="meta">*p2 => [TI, IT, TL, LT, TJ, JT, TS, ST, TZ, ZT, TO, OT, IL, LI, IJ, JI, IS, SI, IZ, ZI, IO, OI, LJ, JL, LS, SL, LZ, ZL, LO, OL, JS, SJ, JZ, ZJ, JO, OJ, SZ, ZS, SO, OS, ZO, OZ]</code>
+
+                    </ul>
+                </li>
+                <li>All selector: <code>!</code>. This resolves to <code>(bag)pL</code> where <code>L</code> is the
+                    number of elements in the bag. <ul>
+                        <code class="meta">[TSZ]! => [SZT, STZ, TSZ, TZS, ZTS, ZST]</code><br>
+                        <code class="meta">*! => (5040 sequences)</code>
+                    </ul>
+                </li>
+            </ul>
+            <h2 id="argument-type-fumen"><code>fumen</code></h2>
+            <div class="text">This is <i>the</i> standard for describing a playfield. They usually start with
+                <code>v115@</code>. There are
+                various online editors that output fumens:
+            </div>
+            <ul>
+                <li>fumen: <a href="https://fumen.zui.jp/ ">https://fumen.zui.jp/ </a></li>
+                <li>fumen (in english): <a href="https://fumen.zui.jp/#english.js">https://fumen.zui.jp/#english.js</a>
+                </li>
+                <li>HardDrop: <a href="https://harddrop.com/fumen">https://harddrop.com/fumen </a></li>
+                <li>qv: <a href="https://qv.rqft.workers.dev/edit">https://qv.rqft.workers.dev/edit</a></li>
+            </ul>
+            <h2 id="argument-type-piece"><code>piece</code></h2>
+            <div class="text">Any of <code>I</code>, <code>J</code>, <code>O</code>, <code>L</code>, <code>Z</code>,
+                <code>S</code>, or <code>T</code>.
+            </div>
+            <h2 id="argument-type-rotation"><code>rotation</code></h2>
+            <div class="text">Any of <code>N</code> (north), <code>E</code> (east), <code>S</code> (south), or
+                <code>W</code> (west).
+            </div>
+            <h1 id="kick-tables">kick tables</h1>
+            <div class="text">This is the expected format of the files used in <code>-K</code> arguments. A table is
+                described by kicks delimited by newlines, and each kick is described with a single line as such:</div>
+            <div class="box code">P<span class="meta">.</span>IF<span class="meta">=</span><span
+                    class="meta">(</span>+u,+v<span class="meta">)(</span>+r<span class="meta">,</span>+s<span
+                    class="meta">)</span></div>
+            <div class="text">Where <code>P</code> designates a <a href="#argument-type-piece"><code>piece</code></a>,
+                <code>I</code> designates the initial rotation, <code>F</code> designates the final
+                rotation, and <code>u</code>, <code>v</code>, <code>r</code>, and <code>s</code> designate the offsets
+                from the center indicating where the rotation would
+                put the piece.
+            </div>
+            <div class="text">It's common that pieces will share groups of kicks (for example, all rotations of the
+                <code>T</code>,
+                <code>J</code>, <code>L</code>, <code>S</code>, and <code>Z</code> pieces have the exact same kick set
+                in SRS). Kick tables allow groups of kicks to
+                reference other kicks as such:
+            </div>
+            <div class="box code">P<span class="meta">.</span>IF<span class="meta">=&</span>Q<span
+                    class="meta">.</span>JG</div>
+            <h1 id="percent">percent</h1>
+            <div class="box code">
+                percent
+                <span class="arg meta">[-c:number]</span>
+                <span class="arg meta">[-d:droptype]</span>
+                <span class="arg meta">[-fc:number]</span>
+                <span class="arg meta">[-fp:path]</span>
+                <span class="arg meta">[-H:hold]</span>
+                <span class="arg meta">[-K:path]</span>
+                <span class="arg meta">[-lp:path]</span>
+                <span class="arg meta">[-P:number]</span>
+                <span class="arg">[-p:pattern]</span>
+                <span class="arg meta">[-pp:path]</span>
+                <span class="arg">[-t:fumen]</span>
+                <span class="arg meta">[-td:number] [-th:number]</span>
+            </div>
+            Returns the probability that you can obtain a perfect clear on the board (<code class="ref">-t</code> or
+            <code class="ref">-fp</code>) with a queue (<code class="ref">-p</code> or
+            <code class="ref">-pp</code>). This will additionally output a tree (up to a set depth (<code
+                class="ref">-td</code>)) of queue probabilities as well as a
+            list of fail queues (up to a set limit (<code class="ref">-fc</code>)).
+            <h2 id="percent-examples">Examples</h2>
+            <div class="box code">
+                <b>percent -t v115@9gD8DeF8CeG8BeH8CeC8JeAgH -p *p4</b><br>
+                <img
+                    src="https://qv.rqft.workers.dev/render.gif?grid=G4E4G2|G4E3G3|G4E2G4|G4E3G3&delay=500&clear=true&loop=true&spec=true&pad=2">
+                <hr>
+                <div class="text">
+                    # Output<br>
+                    success = 61.19% (514/840)<br><br>
+                    Success pattern tree [Head 1 pieces]:<br>
+                    * -> 61.19 %<br>
+                    ? T -> 85.83 %<br>
+                    ? I -> 73.33 %<br>
+                    ? L -> 43.33 %<br>
+                    ? J -> 67.50 %<br>
+                    ? S -> 52.50 %<br>
+                    ? Z -> 58.33 %<br>
+                    ? O -> 47.50 %<br>
+                </div>
+            </div>
+            <h2 id="percent-arguments">Arguments</h2>
+            <h3 id="percent-c"><code>-c</code>, <code>--clear-line</code></h3>
+            <div class="text">The amount of lines <i>from the bottom</i> sfinder will consider. The default value is 4. This is
+                useful for finding say, 8-line perfect clears from a board such as <a href="https://harddrop.com/wiki/SingleYou#Perfect_Clear">SDPC</a>. </div>
+            <h3 id="percent-d"><code>-d</code>, <code>--drop</code></h3>
+            <div class="text">The drop type sfinder will use: see <a href="#argument-type-droptype"><code>droptype</code></a>. The default value is <code>softdrop</code>.</div>
+            <h1 id="path">path</h1>
+            <h2 id="path-examples">Examples</h2>
+            <h2 id="path-arguments">Arguments</h2>
+            <h1 id="setup">setup</h1>
+            <h2 id="setup-examples">Examples</h2>
+            <h2 id="setup-arguments">Arguments</h2>
+            <h1 id="ren">ren</h1>
+            <h2 id="ren-examples">Examples</h2>
+            <h2 id="ren-arguments">Arguments</h2>
+            <h1 id="spin">spin</h1>
+            <h2 id="spin-examples">Examples</h2>
+            <h2 id="spin-arguments">Arguments</h2>
+            <h1 id="cover">cover</h1>
+            <h2 id="cover-examples">Examples</h2>
+            <h2 id="cover-arguments">Arguments</h2>
+            <h1 id="util-fig">util fig</h1>
+            <h2 id="util-fig-examples">Examples</h2>
+            <h2 id="util-fig-arguments">Arguments</h2>
+            <h1 id="util-fumen">util fumen</h1>
+            <h2 id="util-fumen-examples">Examples</h2>
+            <h2 id="util-fumen-arguments">Arguments</h2>
+            <h1 id="util-seq">util seq</h1>
+            <h2 id="util-seq-examples">Examples</h2>
+            <h2 id="util-seq-arguments">Arguments</h2>
+        </div>
+        <div></div>
+    </div>
+
+</body>
+
+</html>

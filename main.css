@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+
+@font-face {
+    font-family: MinoFont;
+    font-style: normal;
+    font-weight: 400;
+    src: url(data:font/woff;base64,d09GRk9UVE8AAAUkAAsAAAAABxwAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABDRkYgAAADTAAAAYMAAAGoS5stSkZGVE0AAAUIAAAAHAAAAByFmy/sR0RFRgAABNAAAAAYAAAAHAAVABRPUy8yAAABZAAAAEgAAABgWAhhGGNtYXAAAALYAAAAXQAAAWIJywzraGVhZAAAAQgAAAA0AAAANhQOlI9oaGVhAAABPAAAAB4AAAAkB2gFDWhtdHgAAAToAAAAIAAAACAdSAHAbWF4cAAAAVwAAAAGAAAABgAIUABuYW1lAAABrAAAASkAAAIWcTAiknBvc3QAAAM4AAAAEwAAACD/hgAyeJxjYGRgYADiBeIln+L5bb4ycDO/AIowXP+9TAVCr7ZmMGdgYDnE5A3kcjAwgUQBViYLXXicY2BkYGDyZmBgiGJlAZIMLIcYGBlQAQcAIs8BgQAAAABQAAAIAAB4nGNgYX7OOIGBlYGBqYtpDwMDQw+EZnzAYMjIBBRlYGVmgAFGBiQQkOaawtDA4MkQxazw34IhiskbWQ2TC4MCEDICAF5lCtB4nIWPMWvCUBSFz9NoydBSXEq3OxUFE15Ch9RVySClg6BjIdUQAyGRGAWhY39Pf0z/TbeeF1+7dDDwcr/ce985JwBu8AmF83OPR8sKLt4sd3CFd8tdPODLsgNXXVvu4VY9We6z/8pN5bj8CttbhhUGeLHcoW9huYtnfFh2uPNtuQdRd5b7GKg5pqiwwwk1cmTYooFgiDVGrCE0AkQYk2dIcGwrptXuVOfZtpHheiShDqKxzJKjcLRESYWcp0CKDf8dy7LJmyLdEBfsZThwltAPizQ7FAkhZgZzz9SaG2nr7dNdMOH5r3ruh8zmMaHm+zcr4qps4qrOUgl9LRP58yeHkRdozyS+FHXFXo095yaaUNzI+201sbBK631elaJ14Gut5YLgD5cXTxUAAAB4nGNgYGBmgGAZBkYGEIgB8hjBfBYGByDNw8DBwARkezH4MPgzhDBE/f8PFPUE84JBvP87/m//v/X/pv9roSbAASMbA7oQ+YCRCeRMFiCLlQ0swE4tk2kKAP97EMEAAAB4nGNgZgCD/80MRgxYAAAoRAG4AHicRY09SCNREMfnuWv20LhR4x5+7GHAFOcX+AknNoKmtrKwlDtR4bg7jpggWmhh42a51k5b7QTf220eiLUY3ErSWFja2OhM8l5xTxEdhilmfr//MLBtYIy1LP0qbhR/rv6YAtYEDIYpA9THyG+iLxZ125eBb1/SXbMP2xkfoN2Hgw4fBny23wnWi9ALAzAy//vP1t+NtfVi7uv3wdzE2Pi3kdzCSim38J7+8cbUEAzDKIzBFEzDLHxiLD+zvBmeVR91fyCpIJmUeCEt+ZnydKLzKanLHhXwQhccl3qOS8jL7Aq5p7hv7yF33ApyVsXYqtKtFygRKF5/CgLk+sZM0fx6r2cM0Jg0hIqV0DcvDPKUqxaPS5SUWZWujZ94OqFrShz3+R/GAUad2Tls0J2X3VWRkiqmmmM2MUqMHDdEwVCjsFBTzVPCIKL+jEKdoTAJ4VvCLj6EHt1jrGTKyJGuqQjPHbex09XIeuUjSg5TQboFuelKpZJOY9yKIsTTdNt/UmLMwwB4nGNgZIAAHgYRBhYgzQTEjBAMAALLACoB9AAABQQAQQPoAEQD6AA+AsQARAPqAD0D6ABFA+oANwAAAAEAAAAA1aPejAAAAADX+6YkAAAAANf7qzs=) format("woff")
+}
+
+:root {
+    color-scheme: light dark;
+    --body-font: 'Source Serif 4';
+    --code-font: 'Source Code Pro';
+
+    --text-color: light-dark(#000000, #ffffff);
+    --bg-color: light-dark(#ffffff, #181825);
+
+    --meta-color: light-dark(#666666, #6e6e7e);
+    --vmeta-color: light-dark(#b7b7b7, #3e3e4e);
+    --a-color: light-dark(#0095aa, #ff009c);
+    --a-hover: light-dark(#00758a, #df007c);
+    --a-active: light-dark(#00b5ca, #ff00ac);
+
+    --info-bg: #1155cc33;
+    --info-text: light-dark(#1155cc, #c9daf8);
+    --cb-bg: light-dark(#efefef, #2e2e3e);
+
+    --ref-color: light-dark(#ff6c00, #6c99ff);
+    --ref-hover: light-dark(#dd4c00, #4c79df);
+    --ref-active: light-dark(#ff8c22, #8ca9ff);
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+.container {
+    display: grid;
+
+    color: var(--text-color);
+    grid-template-columns: 30% 40% 30%;
+    margin-top: 48pt;
+    font-size: 12pt;
+}
+
+.content {
+    font-family: var(--body-font);
+    font-optical-sizing: none;
+    text-align: justify;
+}
+
+div {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+mino {
+    font-family: MinoFont;
+}
+
+code {
+    font-family: var(--code-font);
+}
+
+h1 {
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 20pt;
+    font-weight: normal;
+    line-height: 1rem;
+    margin-top: 1.5em;
+}
+
+h1.title {
+    font-size: 48pt;
+    font-weight: bold;
+    line-height: 1rem;
+}
+
+h1.subtitle {
+    font-size: 20pt;
+    font-weight: normal;
+    line-height: 1rem;
+}
+
+.meta {
+    color: var(--meta-color);
+}
+
+.vmeta {
+    color: var(--vmeta-color);
+}
+
+a {
+    color: var(--a-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--a-hover)
+}
+
+a:active {
+    color: var(--a-active)
+}
+
+div.box {
+    padding: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+    border-radius: 3px;
+}
+
+div.box.info {
+    background-color: var(--info-bg);
+    color: var(--info-text);
+}
+
+
+div.box.info::before {
+    font-family: 'Material Symbols Outlined';
+    content: 'info';
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+ul {
+    margin: 0px;
+    list-style: none;
+}
+
+li::before {
+    content: "-";
+    margin-right: 1rem;
+}
+
+div.box.code {
+    background-color: var(--cb-bg);
+    /* color: black; */
+    font-family: var(--code-font);
+}
+
+h2.code {
+    font-weight: normal;
+    font-family: var(--code-font);
+}
+
+.arg {
+    white-space: nowrap;
+}
+
+.ref {
+    color: var(--ref-color);
+}
+
+.ref:hover {
+    color: var(--ref-hover);
+}
+
+.ref:active {
+    color: var(--ref-active);
+}
